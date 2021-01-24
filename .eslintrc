@@ -27,6 +27,7 @@
         "indent": ["warn", 4],
         "linebreak-style": ["warn", "unix"],
         "quotes": ["warn", "double"],
+        "semi": ["warn", "always"],
         "react/react-in-jsx-scope": "off", // Next.js doesn't require React to be in scope for every Component
         "no-restricted-imports": ["error", { "patterns": ["*./*", "*../*"] }], // No relative imports
         "@typescript-eslint/explicit-function-return-type": "off", // Stict type inferrence is perfectly fine :)
