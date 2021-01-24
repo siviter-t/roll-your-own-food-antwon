@@ -32,6 +32,7 @@
         "no-restricted-imports": ["error", { "patterns": ["*./*", "*../*"] }], // No relative imports
         "@typescript-eslint/explicit-function-return-type": "off", // Stict type inferrence is perfectly fine :)
         "@typescript-eslint/no-explicit-any": "off", // Sometimes, it is unfortunately necessary :(
-        "react/prop-types": "off" // Strict typing is again, just fine
+        "react/prop-types": "off", // Strict typing is again, just fine
+        "@typescript-eslint/no-empty-interface": ["error", { "allowSingleExtends": true }] // Extending is fine and has purpose in module augmentation.
     }
 }
