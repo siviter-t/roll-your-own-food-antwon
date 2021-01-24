@@ -1,0 +1,36 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended"
+    ],
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "rules": {
+        "indent": ["warn", 4],
+        "linebreak-style": ["warn", "unix"],
+        "quotes": ["warn", "double"],
+        "react/react-in-jsx-scope": "off", // Next.js doesn't require React to be in scope for every Component
+        "no-restricted-imports": ["error", { "patterns": ["*./*", "*../*"] }], // No relative imports
+        "@typescript-eslint/explicit-function-return-type": "off", // Stict type inferrence is perfectly fine :)
+        "@typescript-eslint/no-explicit-any": "off", // Sometimes, it is unfortunately necessary :(
+        "react/prop-types": "off" // Strict typing is again, just fine
+    }
+}
