@@ -1,23 +1,7 @@
-# Recoil Example
+# roll-your-own-food-antwon
 
-This example shows how to integrate Recoil in Next.js.
+This is a simple Just Eat API integration. See [https://uk.api.just-eat.io/docs] for further information on the services that they have made available. They are kind enough to provide many free endpoints.
 
-[Recoil](https://recoiljs.org) is an experimental set of utilities for state management with React used by some teams at Facebook. This example takes the code from the redux examples and demonstrates how it would be implemented with Recoil.
+## Why?
 
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-recoil&project-name=with-recoil&repository-name=with-recoil)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-recoil with-recoil-app
-# or
-yarn create next-app --example with-recoil with-recoil-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+I thought we spent far too much time 'rolling' a friend's dinner before commencing a game night.
