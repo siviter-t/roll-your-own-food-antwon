@@ -14,6 +14,7 @@
 
 # production
 /build
+/out
 
 # misc
 .DS_Store
@@ -32,3 +33,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# Local Netlify folder
+.netlify
