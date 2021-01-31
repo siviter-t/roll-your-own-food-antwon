@@ -28,7 +28,7 @@ const RestaurantBackgroundInternal: FC<{ restaurants: JustEatRestaurantDto[] }> 
     if (props.restaurants.length === 0) return null;
     return (
         <BackgroundContainer>
-            <Tiles>
+            <Tiles height="100%" mainAxisContentAlignment={"space-around"} crossAxisContentAlignment={"space-between"}>
                 {props.restaurants.map(restaurant =>
                     <RestaurantTile
                         key={restaurant.Id}
