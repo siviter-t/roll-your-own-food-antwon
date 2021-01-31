@@ -1,6 +1,16 @@
 import { FC } from "react";
-import Counter from "components/Counter";
+import { PostCodeSearch } from "components/PostCodeSearch";
+import { FlexCentre } from "components/part/FlexCentre";
 
-const IndexPage: FC = () => <Counter />;
+export const IndexPage: FC = () => {
+    return (
+        <>
+            <FlexCentre>
+                <PostCodeSearch />
+            </FlexCentre>
+        </>
+    );
+};
+
 
 export default IndexPage;

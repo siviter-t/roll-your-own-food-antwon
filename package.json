@@ -10,7 +10,7 @@
     "build": "next build",
     "publish": "next build && next export",
     "test": "jest",
-    "lint": "eslint components/**/*.tsx pages/**/*.tsx"
+    "lint": "eslint atoms/**/*.ts components/**/*.tsx pages/**/*.tsx services/**/*.ts styles/**/*.ts utils/**/*.ts"
   },
   "dependencies": {
     "lodash": "^4.17.20",

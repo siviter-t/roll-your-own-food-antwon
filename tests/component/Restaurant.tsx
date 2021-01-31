@@ -1,19 +1,18 @@
 import { ComponentProps } from "react";
 import { render } from '@testing-library/react';
-import { Restaurant } from "components/Restaurant";
+import { RestaurantTile } from "components/RestaurantTile";
 
-function testRenderComponent(props: ComponentProps<typeof Restaurant>) {
-    return render(<Restaurant {...props} />);
+function testRenderComponent(props: ComponentProps<typeof RestaurantTile>) {
+    return render(<RestaurantTile {...props} />);
 }
 
-describe("Restaurant", () => {
+describe("RestaurantTile", () => {
     it("can render", () => {
         const { queryByText } = testRenderComponent({
             name: "testName",
-            description: "testDescription"
+            logoUrl: "/test.png"
         });
 
         expect(queryByText(/testName/)).toBeTruthy();
-        expect(queryByText(/testDescription/)).toBeTruthy();
     });
 });
