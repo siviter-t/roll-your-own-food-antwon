@@ -9,8 +9,8 @@ export const RestaurantsPage: FC = () => {
         <>
             <div style={{ position: "absolute", height: "100%", width: "100%" }}>
                 <RestaurantsBackground />
-                <div style={{ position: "relative" }}>
-                    <FlexCentre>
+                <div style={{ position: "relative", height: "100%" }}>
+                    <FlexCentre height={"100%"}>
                         <div>
                             <PostCodeSearch />
                             <RestaurantsResult />
