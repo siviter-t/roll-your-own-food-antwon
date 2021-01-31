@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useRestaurantsLoader } from "atoms/RestaurantsByPostCodeQuery";
-import { Button } from "components/form/Button";
 import { ThirdLevelHeading } from "components/part/text/ThirdLevelHeading";
+import { RollButton } from "components/RollButton";
 
 export const RestaurantsResult: FC = () => {
     const { isLoading, restaurants, error } = useRestaurantsLoader();
@@ -13,7 +13,7 @@ export const RestaurantsResult: FC = () => {
     return (
         <div>
             <ThirdLevelHeading>Found {restaurants.length} restaurants to roll for!</ThirdLevelHeading>
-            <Button>Roll</Button>
+            <RollButton />
         </div>
     );
 };

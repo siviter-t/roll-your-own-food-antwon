@@ -3,7 +3,7 @@ import { selector, useRecoilValueLoadable } from "recoil";
 import { restaurantPostCodeQueryState } from "atoms/RestaurantPostCodeQueryState";
 import { fetchRestaurants, JustEatRestaurantDto } from "services/JustEatApiIntegration";
 
-const restaurantsByPostCodeQuery = selector({
+export const restaurantsByPostCodeQuery = selector({
     key: "Restaurants",
     get: async ({ get }) => {
         const postCode = get(restaurantPostCodeQueryState);

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import styled from "styled-components";
 
-const ThirdLevelHeadingContainer = styled.h1`
+const ThirdLevelHeadingContainer = styled.h3`
     line-height: 2em;
     font-size: 1.2em;
     letter-spacing: -0.04em;
@@ -9,7 +9,7 @@ const ThirdLevelHeadingContainer = styled.h1`
 
 export const ThirdLevelHeading: FC = props => {
     return (
-        <ThirdLevelHeadingContainer {...props}>
+        <ThirdLevelHeadingContainer>
             {props.children}
         </ThirdLevelHeadingContainer>
     );
