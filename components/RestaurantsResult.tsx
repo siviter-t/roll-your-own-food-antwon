@@ -12,7 +12,7 @@ export const RestaurantsResult: FC = () => {
 
     return (
         <div>
-            <ThirdLevelHeading>Found {restaurants.length} restaurants to roll for!</ThirdLevelHeading>
+            <ThirdLevelHeading>Found {restaurants.length} restaurants open for delivery to roll for!</ThirdLevelHeading>
             <RollButton />
         </div>
     );

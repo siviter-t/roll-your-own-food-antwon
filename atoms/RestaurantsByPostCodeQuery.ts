@@ -18,13 +18,17 @@ interface RestaurantsLoader {
     error: Error | null;
 }
 
+function baseRestaurantFilter(restaurants: JustEatRestaurantDto[]): JustEatRestaurantDto[] {
+    return _.filter(restaurants, r => r.IsOpenNow && r.IsOpenNowForDelivery);
+}
+
 export function useRestaurantsLoader(): RestaurantsLoader {
     const restaurantsLoadable = useRecoilValueLoadable(restaurantsByPostCodeQuery);
 
     if (restaurantsLoadable.state === "hasValue") {
         return {
             isLoading: false,
-            restaurants: restaurantsLoadable.contents?.Restaurants || [],
+            restaurants: baseRestaurantFilter(restaurantsLoadable.contents?.Restaurants || []),
             error: null,
         };
     }
