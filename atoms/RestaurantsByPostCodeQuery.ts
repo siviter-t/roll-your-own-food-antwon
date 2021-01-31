@@ -1,3 +1,4 @@
+import _ from "lodash";
 import { selector, useRecoilValueLoadable } from "recoil";
 import { restaurantPostCodeQueryState } from "atoms/RestaurantPostCodeQueryState";
 import { fetchRestaurants, JustEatRestaurantDto } from "services/JustEatApiIntegration";
@@ -41,4 +42,18 @@ export function useRestaurantsLoader(): RestaurantsLoader {
         restaurants: null,
         error: restaurantsLoadable.contents
     };
+}
+
+export function useRestaurantsSampleLoader(sampleSize: number): RestaurantsLoader {
+    const { isLoading, restaurants, error } = useRestaurantsLoader();
+
+    if (restaurants && restaurants.length > 0) {
+        return {
+            isLoading,
+            restaurants: _.sampleSize(restaurants, sampleSize),
+            error
+        };
+    }
+
+    return { isLoading, restaurants, error };
 }

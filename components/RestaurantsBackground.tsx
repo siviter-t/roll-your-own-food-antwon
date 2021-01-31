@@ -1,6 +1,6 @@
 import { FC } from "react";
 import styled from "styled-components";
-import { useRestaurantsLoader } from "atoms/RestaurantsByPostCodeQuery";
+import { useRestaurantsSampleLoader } from "atoms/RestaurantsByPostCodeQuery";
 import { RestaurantTile } from "components/RestaurantTile";
 import { Tiles } from "components/part/Tiles";
 
@@ -13,7 +13,7 @@ const BackgroundContainer = styled.div`
 `;
 
 export const RestaurantsBackground: FC = () => {
-    const { isLoading, restaurants, error } = useRestaurantsLoader();
+    const { isLoading, restaurants, error } = useRestaurantsSampleLoader(64);
 
     if (isLoading || error) return null;
     if (!restaurants || restaurants.length === 0) return null;
