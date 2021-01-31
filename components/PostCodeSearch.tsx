@@ -2,7 +2,7 @@ import { NextRouter, useRouter } from "next/router";
 import _ from "lodash";
 import { ChangeEvent, FC, useCallback } from "react";
 import { useRecoilState } from "recoil";
-import { restaurantPostCodeQueryState } from "atoms/Restaurants";
+import { restaurantPostCodeQueryState } from "atoms/RestaurantPostCodeQueryState";
 import { TextInput } from "components/form/TextInput";
 
 const redirectToRestaurants = (router: NextRouter) => router.push("/restaurants");

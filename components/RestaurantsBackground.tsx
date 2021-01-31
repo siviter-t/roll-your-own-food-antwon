@@ -1,10 +1,8 @@
 import { FC } from "react";
-import { useRecoilValueLoadable } from "recoil";
 import styled from "styled-components";
-import { restaurantsByPostCodeQuery } from "atoms/Restaurants";
+import { useRestaurantsLoader } from "atoms/RestaurantsByPostCodeQuery";
 import { RestaurantTile } from "components/RestaurantTile";
 import { Tiles } from "components/part/Tiles";
-import { JustEatRestaurantDto } from "services/JustEatApiIntegration";
 
 const BackgroundContainer = styled.div`
     position: absolute;
@@ -15,21 +13,15 @@ const BackgroundContainer = styled.div`
 `;
 
 export const RestaurantsBackground: FC = () => {
-    const restaurantsLoadable = useRecoilValueLoadable(restaurantsByPostCodeQuery);
+    const { isLoading, restaurants, error } = useRestaurantsLoader();
 
-    if (restaurantsLoadable.state === "hasValue") return <div>
-        <RestaurantBackgroundInternal restaurants={restaurantsLoadable.contents?.Restaurants || []} />
-    </div>;
+    if (isLoading || error) return null;
+    if (!restaurants || restaurants.length === 0) return null;
 
-    return <RestaurantBackgroundInternal restaurants={[]} />;
-};
-
-const RestaurantBackgroundInternal: FC<{ restaurants: JustEatRestaurantDto[] }> = props => {
-    if (props.restaurants.length === 0) return null;
     return (
         <BackgroundContainer>
             <Tiles height="100%" mainAxisContentAlignment={"space-around"} crossAxisContentAlignment={"space-between"}>
-                {props.restaurants.map(restaurant =>
+                {restaurants.map(restaurant =>
                     <RestaurantTile
                         key={restaurant.Id}
                         name={restaurant.Name}
