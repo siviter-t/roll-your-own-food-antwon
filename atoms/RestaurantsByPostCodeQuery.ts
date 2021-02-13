@@ -1,4 +1,4 @@
-import _ from "lodash";
+import { filter, sampleSize } from "lodash";
 import { selector, useRecoilValueLoadable } from "recoil";
 import { restaurantPostCodeQueryState } from "atoms/RestaurantPostCodeQueryState";
 import { fetchRestaurants, JustEatRestaurantDto } from "services/JustEatApiIntegration";
@@ -18,8 +18,9 @@ interface RestaurantsLoader {
     error: Error | null;
 }
 
-function baseRestaurantFilter(restaurants: JustEatRestaurantDto[]): JustEatRestaurantDto[] {
-    return _.filter(restaurants, r => r.IsOpenNow && r.IsOpenNowForDelivery);
+function baseRestaurantFilter(restaurants: JustEatRestaurantDto[] | null): JustEatRestaurantDto[] | null {
+    if (!restaurants) return null;
+    return filter(restaurants, r => r.IsOpenNow && r.IsOpenNowForDelivery);
 }
 
 export function useRestaurantsLoader(): RestaurantsLoader {
@@ -28,7 +29,7 @@ export function useRestaurantsLoader(): RestaurantsLoader {
     if (restaurantsLoadable.state === "hasValue") {
         return {
             isLoading: false,
-            restaurants: baseRestaurantFilter(restaurantsLoadable.contents?.Restaurants || []),
+            restaurants: baseRestaurantFilter(restaurantsLoadable.contents?.Restaurants ?? null),
             error: null,
         };
     }
@@ -48,13 +49,13 @@ export function useRestaurantsLoader(): RestaurantsLoader {
     };
 }
 
-export function useRestaurantsSampleLoader(sampleSize: number): RestaurantsLoader {
+export function useRestaurantsSampleLoader(size: number): RestaurantsLoader {
     const { isLoading, restaurants, error } = useRestaurantsLoader();
 
     if (restaurants && restaurants.length > 0) {
         return {
             isLoading,
-            restaurants: _.sampleSize(restaurants, sampleSize),
+            restaurants: sampleSize(restaurants, size),
             error
         };
     }
