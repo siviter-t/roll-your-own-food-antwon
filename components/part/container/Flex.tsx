@@ -1,3 +1,4 @@
+import { isNil } from "lodash";
 import { FC } from "react";
 import styled, { CSSProperties } from "styled-components";
 
@@ -22,19 +23,19 @@ interface Props extends StyleProps {
 
 const FlexContainer = styled.div<StyleProps>`
     display: flex;
-    ${props => props.alignContent && `align-content: ${props.alignContent};`}
-    ${props => props.alignItems && `align-items: ${props.alignItems};`}
-    ${props => props.alignSelf && `align-self: ${props.alignSelf};`}
-    ${props => props.flexBasis && `flex-basis: ${props.flexBasis};`}
-    ${props => props.flexDirection && `flex-direction: ${props.flexDirection};`}
-    ${props => props.flexGrow && `flex-grow: ${props.flexGrow};`}
-    ${props => props.flexShrink && `flex-shrink: ${props.flexShrink};`}
-    ${props => props.flexWrap && `flex-wrap: ${props.flexWrap};`}
-    ${props => props.height && `height: ${props.height};`}
-    ${props => props.justifyContent && `justify-content: ${props.justifyContent};`}
-    ${props => props.justifyItems && `justify-items: ${props.justifyItems};`}
-    ${props => props.justifySelf && `justify-self: ${props.justifySelf};`}
-    ${props => props.width && `width: ${props.width};`}
+    ${props => !isNil(props.alignContent) && `align-content: ${props.alignContent};`}
+    ${props => !isNil(props.alignItems) && `align-items: ${props.alignItems};`}
+    ${props => !isNil(props.alignSelf) && `align-self: ${props.alignSelf};`}
+    ${props => !isNil(props.flexBasis) && `flex-basis: ${props.flexBasis};`}
+    ${props => !isNil(props.flexDirection) && `flex-direction: ${props.flexDirection};`}
+    ${props => !isNil(props.flexGrow) && `flex-grow: ${props.flexGrow};`}
+    ${props => !isNil(props.flexShrink) && `flex-shrink: ${props.flexShrink};`}
+    ${props => !isNil(props.flexWrap) && `flex-wrap: ${props.flexWrap};`}
+    ${props => !isNil(props.height) && `height: ${props.height};`}
+    ${props => !isNil(props.justifyContent) && `justify-content: ${props.justifyContent};`}
+    ${props => !isNil(props.justifyItems) && `justify-items: ${props.justifyItems};`}
+    ${props => !isNil(props.justifySelf) && `justify-self: ${props.justifySelf};`}
+    ${props => !isNil(props.width) && `width: ${props.width};`}
 `;
 
 /**

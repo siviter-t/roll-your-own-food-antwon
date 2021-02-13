@@ -1,3 +1,4 @@
+import { isNil } from "lodash";
 import { FC } from "react";
 import styled, { CSSProperties } from "styled-components";
 
@@ -16,13 +17,13 @@ interface Props extends StyleProps {
 
 const RelativeRootContainer = styled.div<StyleProps>`
     position: relative;
-    ${props => props.bottom && `bottom: ${props.bottom};`}
-    ${props => `height: ${props.height ? props.height : "100%"};`}
-    ${props => props.left && `left: ${props.left};`}
-    ${props => props.right && `right: ${props.right};`}
-    ${props => props.top && `top: ${props.top};`}
-    ${props => `width: ${props.width ? props.width : "100%"};`}
-    ${props => props.zIndex && `z-index: ${props.zIndex};`}
+    ${props => !isNil(props.bottom) && `bottom: ${props.bottom};`}
+    ${props => `height: ${!isNil(props.height) ? props.height : "100%"};`}
+    ${props => !isNil(props.left) && `left: ${props.left};`}
+    ${props => !isNil(props.right) && `right: ${props.right};`}
+    ${props => !isNil(props.top) && `top: ${props.top};`}
+    ${props => `width: ${!isNil(props.width) ? props.width : "100%"};`}
+    ${props => !isNil(props.zIndex) && `z-index: ${props.zIndex};`}
 `;
 
 export const RelativeRoot: FC<Props> = props => {
