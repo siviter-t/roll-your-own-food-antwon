@@ -1,8 +1,8 @@
 import { FC } from "react";
-import { AbsoluteRoot } from "components/part/position/AbsoluteRoot";
-import { FlexCentre } from "components/part/position/FlexCentre";
+import { AbsoluteRoot } from "components/part/container/AbsoluteRoot";
+import { FlexCentre } from "components/part/container/FlexCentre";
 import { RestaurantChoice } from "components/RestaurantChoice";
-import { RelativeRoot } from "components/part/position/RelativeRoot";
+import { RelativeRoot } from "components/part/container/RelativeRoot";
 
 export const RestaurantPage: FC = () => {
     return (
