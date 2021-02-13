@@ -1,20 +1,18 @@
 import { FC } from "react";
-import { FlexCentre } from "components/part/FlexCentre";
+import { AbsoluteRoot } from "components/part/position/AbsoluteRoot";
+import { FlexCentre } from "components/part/position/FlexCentre";
 import { RestaurantChoice } from "components/RestaurantChoice";
+import { RelativeRoot } from "components/part/position/RelativeRoot";
 
 export const RestaurantPage: FC = () => {
     return (
-        <>
-            <div style={{ position: "absolute", height: "100%", width: "100%" }}>
-                <div style={{ position: "relative", height: "100%" }}>
-                    <FlexCentre height={"100%"}>
-                        <div>
-                            <RestaurantChoice />
-                        </div>
-                    </FlexCentre>
-                </div>
-            </div>
-        </>
+        <AbsoluteRoot>
+            <RelativeRoot>
+                <FlexCentre flexDirection="column">
+                    <RestaurantChoice />
+                </FlexCentre>
+            </RelativeRoot>
+        </AbsoluteRoot>
     );
 };
 

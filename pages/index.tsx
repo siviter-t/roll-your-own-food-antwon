@@ -1,20 +1,18 @@
 import { FC } from "react";
 import { PostCodeSearch } from "components/PostCodeSearch";
-import { FlexCentre } from "components/part/FlexCentre";
+import { AbsoluteRoot } from "components/part/position/AbsoluteRoot";
+import { FlexCentre } from "components/part/position/FlexCentre";
+import { RelativeRoot } from "components/part/position/RelativeRoot";
 
 export const IndexPage: FC = () => {
     return (
-        <>
-            <div style={{ position: "absolute", height: "100%", width: "100%" }}>
-                <div style={{ position: "relative", height: "100%" }}>
-                    <FlexCentre height={"100%"}>
-                        <div>
-                            <PostCodeSearch />
-                        </div>
-                    </FlexCentre>
-                </div>
-            </div>
-        </>
+        <AbsoluteRoot>
+            <RelativeRoot>
+                <FlexCentre flexDirection="column">
+                    <PostCodeSearch />
+                </FlexCentre>
+            </RelativeRoot>
+        </AbsoluteRoot>
     );
 };
 
