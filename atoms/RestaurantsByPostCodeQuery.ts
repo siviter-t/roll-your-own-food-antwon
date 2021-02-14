@@ -9,7 +9,8 @@ export const restaurantsByPostCodeQuery = selector({
     get: async ({ get }) => {
         const postCode = get(restaurantPostCodeQueryState);
         if (!postCode || !isValidishUkPostcode(postCode)) return null;
-        return await fetchRestaurants(postCode);
+        const result = await fetchRestaurants(postCode);
+        return baseRestaurantFilter(result?.Restaurants ?? null);
     }
 });
 
@@ -30,7 +31,7 @@ export function useRestaurantsLoader(): RestaurantsLoader {
     if (restaurantsLoadable.state === "hasValue") {
         return {
             isLoading: false,
-            restaurants: baseRestaurantFilter(restaurantsLoadable.contents?.Restaurants ?? null),
+            restaurants: restaurantsLoadable.contents,
             error: null,
         };
     }

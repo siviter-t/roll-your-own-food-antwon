@@ -1,4 +1,4 @@
-import _ from "lodash";
+import { sample } from "lodash";
 import { selector, useRecoilValueLoadable } from "recoil";
 import { restaurantsByPostCodeQuery } from "atoms/RestaurantsByPostCodeQuery";
 import { JustEatRestaurantDto } from "services/JustEatApiIntegration";
@@ -6,9 +6,9 @@ import { JustEatRestaurantDto } from "services/JustEatApiIntegration";
 const randomRestaurantQuery = selector({
     key: "randomRestaurantQuery",
     get: async ({ get }) => {
-        const restaurants = get(restaurantsByPostCodeQuery)?.Restaurants;
+        const restaurants = get(restaurantsByPostCodeQuery);
         if (!restaurants || restaurants.length === 0) return null;
-        return _.sample(restaurants) ?? null;
+        return sample(restaurants) ?? null;
     }
 });
 
