@@ -1,5 +1,3 @@
-import { isValidishUkPostcode } from "utils/IsValidishUkPostcode";
-
 export interface JustEatRestaurantDto {
     Id: number;
 
@@ -26,7 +24,6 @@ export interface JustEatRestaurantSearchResultDto {
 }
 
 export async function fetchRestaurants(postCode: string): Promise<JustEatRestaurantSearchResultDto | null> {
-    if (!isValidishUkPostcode(postCode)) return null;
     const postCodeEncoded = encodeURIComponent(postCode);
     const uri = `/.netlify/functions/just-eat-fetch-restaurants?postcode=${postCodeEncoded}`;
     const response = await fetch(uri);

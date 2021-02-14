@@ -2,12 +2,13 @@ import { filter, sampleSize } from "lodash";
 import { selector, useRecoilValueLoadable } from "recoil";
 import { restaurantPostCodeQueryState } from "atoms/RestaurantPostCodeQueryState";
 import { fetchRestaurants, JustEatRestaurantDto } from "services/JustEatApiIntegration";
+import { isValidishUkPostcode } from "utils/IsValidishUkPostcode";
 
 export const restaurantsByPostCodeQuery = selector({
     key: "Restaurants",
     get: async ({ get }) => {
         const postCode = get(restaurantPostCodeQueryState);
-        if (!postCode) return null;
+        if (!postCode || !isValidishUkPostcode(postCode)) return null;
         return await fetchRestaurants(postCode);
     }
 });
@@ -61,4 +62,9 @@ export function useRestaurantsSampleLoader(size: number): RestaurantsLoader {
     }
 
     return { isLoading, restaurants, error };
+}
+
+export function useAreRestaurantsLoading(): { isLoading: boolean } {
+    const { isLoading } = useRestaurantsLoader();
+    return { isLoading };
 }
