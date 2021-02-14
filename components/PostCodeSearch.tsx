@@ -20,7 +20,7 @@ export const PostCodeSearch: FC = () => {
             showValidation={showInvalidation}
             renderInput={showInvalidation => <TextInput
                 showInvalidation={showInvalidation}
-                value={postCode || ""}
+                value={postCode?.toUpperCase() || ""}
                 onChange={event => setPostCode(event.target.value)}
                 placeholder={"enter a postcode"}
             />}
