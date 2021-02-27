@@ -24,7 +24,7 @@ export const PostCodeSearch: FC = () => {
                 onChange={event => setPostCode(event.target.value)}
                 placeholder={"enter a postcode"}
             />}
-            renderLoading={<Spinner />}
+            renderLoading={<Spinner size="1.25em" />}
             renderValidation={null}
         />
 

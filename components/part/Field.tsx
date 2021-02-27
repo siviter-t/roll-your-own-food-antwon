@@ -2,6 +2,7 @@ import { FC } from "react";
 import { RelativeRoot } from "components/part/container/RelativeRoot";
 import { AbsoluteRoot } from "components/part/container/AbsoluteRoot";
 import { Flex } from "components/part/container/Flex";
+import { FlexCentre } from "components/part/container/FlexCentre";
 
 interface Props {
     isLoading: boolean;
@@ -17,8 +18,10 @@ export const Field: FC<Props> = props => {
         <Flex>
             <RelativeRoot>
                 {props.renderInput(!props.isValid && props.showValidation)}
-                <AbsoluteRoot width={"auto"} top={0} right={0}>
-                    {props.isLoading && props.renderLoading}
+                <AbsoluteRoot width={"auto"} top={0} right={"0.2em"}>
+                    <FlexCentre>
+                        {props.isLoading && props.renderLoading}
+                    </FlexCentre>
                     {props.isValid && props.renderValidation}
                 </AbsoluteRoot>
             </RelativeRoot>
